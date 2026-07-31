@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Turn rough work notes into a clear weekly update." />
+    <title>UpdateMate — Weekly Update Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span></span> YOUR FRIDAY HELPER</p>
+        <h1 id="page-title">Updates, <em>without</em><br />the blank-page stare.</h1>
+        <p class="lede">Drop in your scattered work notes. UpdateMate turns them into a polished weekly update in one click.</p>
+        <div class="steps" aria-label="How it works">
+          <div><b>01</b><span>Paste notes</span></div>
+          <div><b>02</b><span>Pick a tone</span></div>
+          <div><b>03</b><span>Copy &amp; send</span></div>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Weekly update generator">
+        <div class="card input-card">
+          <div class="card-heading">
+            <div>
+              <p class="label">RAW NOTES</p>
+              <h2>What happened this week?</h2>
+            </div>
+            <button class="text-button" id="example-button" type="button">Use example</button>
+          </div>
+          <label class="sr-only" for="notes">Rough weekly notes</label>
+          <textarea id="notes" maxlength="5000" placeholder="Fixed login bug&#10;Reviewed two pull requests&#10;Started learning AWS Lambda&#10;Blocked by database issue"></textarea>
+          <div class="input-footer">
+            <span id="count">0 / 5000</span>
+            <span>One note per line works best</span>
+          </div>
+          <fieldset>
+            <legend class="label">TONE</legend>
+            <div class="tone-options" role="radiogroup" aria-label="Choose update tone">
+              <label><input type="radio" name="tone" value="professional" checked /><span>Professional</span></label>
+              <label><input type="radio" name="tone" value="short" /><span>Short</span></label>
+              <label><input type="radio" name="tone" value="casual" /><span>Casual</span></label>
+            </div>
+          </fieldset>
+          <button class="generate" id="generate-button" type="button">
+            <span>Generate update</span><span aria-hidden="true">→</span>
+          </button>
+          <p class="error" id="error" role="alert" hidden></p>
+        </div>
+
+        <div class="card output-card" aria-live="polite">
+          <div class="card-heading">
+            <div>
+              <p class="label">YOUR UPDATE</p>
+              <h2>Ready to share</h2>
+            </div>
+            <span class="spark" aria-hidden="true">✦</span>
+          </div>
+          <div class="result empty" id="result">
+            <div class="empty-icon" aria-hidden="true">↗</div>
+            <p>Your finished update will appear here.</p>
+          </div>
+          <button class="copy" id="copy-button" type="button" disabled>
+            <span>Copy update</span><span aria-hidden="true">⧉</span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer>UpdateMate · A tiny tool for less tedious Fridays</footer>
+    <script src="app-config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
