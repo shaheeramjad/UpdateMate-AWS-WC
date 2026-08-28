@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1200px; height: 675px; overflow: hidden; }
+      body {
+        color: #202627;
+        background: #f4f2eb;
+        font-family: Manrope, Arial, sans-serif;
+      }
+      .frame {
+        width: 1200px;
+        height: 675px;
+        padding: 42px 48px 40px;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 22px;
+        background:
+          radial-gradient(900px 420px at 8% -10%, rgba(213, 242, 85, .28), transparent 58%),
+          radial-gradient(700px 380px at 100% 110%, rgba(183, 213, 214, .35), transparent 55%),
+          #f4f2eb;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: #d5f255;
+        border: 1px solid #202627;
+      }
+      .brand b {
+        font: 800 22px/1 Manrope, Arial, sans-serif;
+        letter-spacing: -.04em;
+      }
+      .pills { display: flex; gap: 8px; }
+      .pills span {
+        background: #e9e7df;
+        border-radius: 999px;
+        padding: 7px 12px 7px 8px;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .pills i {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #fffefa;
+        display: grid;
+        place-items: center;
+        font: 500 9px/1 "DM Mono", monospace;
+        font-style: normal;
+      }
+      .workspace {
+        display: grid;
+        grid-template-columns: 1.05fr .95fr;
+        gap: 18px;
+        min-height: 0;
+      }
+      .card {
+        background: #fffefa;
+        border: 1px solid #dedcd3;
+        border-radius: 18px;
+        padding: 22px 22px 18px;
+        box-shadow: 0 10px 28px rgba(46, 43, 32, .06);
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+      .output { background: #253333; color: #f8f6ed; border-color: #253333; }
+      .heading { display: flex; justify-content: space-between; align-items: flex-start; }
+      .label {
+        color: #687273;
+        font: 500 11px/1 "DM Mono", monospace;
+        letter-spacing: .1em;
+        margin-bottom: 7px;
+      }
+      .output .label { color: #9eaaa4; }
+      h2 { font-size: 18px; letter-spacing: -.03em; font-weight: 800; }
+      .notes, .result {
+        margin-top: 16px;
+        flex: 1;
+        border-radius: 10px;
+        padding: 18px 18px 14px;
+        font-size: 17px;
+        line-height: 1.6;
+        white-space: pre-wrap;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .notes {
+        border: 1px solid #dedcd3;
+        background: #fcfbf7;
+        color: #202627;
+      }
+      .result {
+        border: 1px solid rgba(255,255,255,.16);
+        background: rgba(255,255,255,.05);
+        color: #f8f6ed;
+        line-height: 1.7;
+      }
+      .meta {
+        margin-top: 18px;
+        font: 500 11px/1 "DM Mono", monospace;
+        letter-spacing: .04em;
+      }
+      .notes .meta { color: #687273; }
+      .result .meta { color: #9eaaa4; }
+      .tones { display: flex; gap: 7px; margin-top: 14px; }
+      .tones span {
+        padding: 7px 11px;
+        border: 1px solid #dedcd3;
+        border-radius: 8px;
+        color: #687273;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .tones span.on {
+        color: #202627;
+        border-color: #202627;
+        background: #d5f255;
+      }
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        border-radius: 10px;
+        margin-top: 14px;
+        padding: 12px 14px;
+        font-weight: 800;
+        font-size: 15px;
+      }
+      .dark { background: #202627; color: #fff; }
+      .lime { background: #d5f255; color: #202627; }
+      .spark {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #f4a261;
+        color: #202627;
+        display: grid;
+        place-items: center;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="top">
+        <div class="brand"><span class="dot"></span><b>UpdateMate</b></div>
+        <div class="pills">
+          <span><i>01</i>Paste notes</span>
+          <span><i>02</i>Pick a tone</span>
+          <span><i>03</i>Copy &amp; send</span>
+        </div>
+      </div>
+      <section class="workspace">
+        <div class="card">
+          <div class="heading">
+            <div>
+              <p class="label">RAW NOTES</p>
+              <h2>What happened this week?</h2>
+            </div>
+          </div>
+          <div class="notes"><div>Fixed login bug
+Reviewed two pull requests
+Started learning AWS Lambda
+Blocked by database issue</div><div class="meta">96 / 5000</div></div>
+          <div class="tones">
+            <span class="on">Professional</span>
+            <span>Short</span>
+            <span>Casual</span>
+            <span>Slack</span>
+          </div>
+          <div class="btn dark"><span>Generate update</span><span>→</span></div>
+        </div>
+        <div class="card output">
+          <div class="heading">
+            <div>
+              <p class="label">YOUR UPDATE</p>
+              <h2>Ready to share</h2>
+            </div>
+            <span class="spark">✦</span>
+          </div>
+          <div class="result"><div>This week, I fixed a login bug, reviewed two pull requests, and started learning AWS Lambda. I am currently blocked by a database issue.</div><div class="meta">Formatted by AWS Lambda</div></div>
+          <div class="btn lime"><span>Copy update</span><span>⧉</span></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

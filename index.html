@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Turn rough work notes into a clear weekly update." />
+    <meta name="description" content="Turn rough work notes into a clear weekly update you can paste into email or Slack." />
     <title>UpdateMate — Weekly Update Generator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,9 +13,9 @@
   <body>
     <main class="shell">
       <section class="intro" aria-labelledby="page-title">
-        <p class="eyebrow"><span></span> YOUR FRIDAY HELPER</p>
+        <p class="eyebrow"><span></span> SUMMER SHOWCASE · YOUR FRIDAY HELPER</p>
         <h1 id="page-title">Updates, <em>without</em><br />the blank-page stare.</h1>
-        <p class="lede">Drop in your scattered work notes. UpdateMate turns them into a polished weekly update in one click.</p>
+        <p class="lede">Drop in your scattered work notes. UpdateMate turns them into a polished weekly update you can paste into email or Slack — in one click, with no account and no stored notes.</p>
         <div class="steps" aria-label="How it works">
           <div><b>01</b><span>Paste notes</span></div>
           <div><b>02</b><span>Pick a tone</span></div>
@@ -36,7 +36,7 @@
           <textarea id="notes" maxlength="5000" placeholder="Fixed login bug&#10;Reviewed two pull requests&#10;Started learning AWS Lambda&#10;Blocked by database issue"></textarea>
           <div class="input-footer">
             <span id="count">0 / 5000</span>
-            <span>One note per line works best</span>
+            <span>One note per line · Ctrl/⌘ + Enter to generate</span>
           </div>
           <fieldset>
             <legend class="label">TONE</legend>
@@ -44,6 +44,7 @@
               <label><input type="radio" name="tone" value="professional" checked /><span>Professional</span></label>
               <label><input type="radio" name="tone" value="short" /><span>Short</span></label>
               <label><input type="radio" name="tone" value="casual" /><span>Casual</span></label>
+              <label><input type="radio" name="tone" value="slack" /><span>Slack</span></label>
             </div>
           </fieldset>
           <button class="generate" id="generate-button" type="button">
@@ -64,14 +65,21 @@
             <div class="empty-icon" aria-hidden="true">↗</div>
             <p>Your finished update will appear here.</p>
           </div>
+          <p class="source" id="source" hidden></p>
           <button class="copy" id="copy-button" type="button" disabled>
             <span>Copy update</span><span aria-hidden="true">⧉</span>
           </button>
         </div>
       </section>
+
+      <section class="history" aria-label="Recent updates">
+        <p class="label">RECENT ON THIS DEVICE</p>
+        <p class="history-empty" id="history-empty">Nothing stored in the cloud. The last few copies stay in this browser only.</p>
+        <ul id="history-list" hidden></ul>
+      </section>
     </main>
-    <footer>UpdateMate · A tiny tool for less tedious Fridays</footer>
+    <footer>UpdateMate · A tiny AWS tool for less tedious Fridays · Summer Builds Showcase</footer>
     <script src="app-config.js"></script>
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>
